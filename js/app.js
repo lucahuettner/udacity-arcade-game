@@ -23,7 +23,18 @@ class Enemy {
 // This class requires an update(), render() and
 // a handleInput() method.
 class Player {
-  constructor() {
+  constructor(x, y) {
+    this.sprite = 'images/char-boy.png';
+    this.x = x;
+    this.y = y;
+  }
+  update (dt) {
+
+  }
+  render () {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+  handleInput (input) {
 
   }
 }
@@ -35,14 +46,7 @@ class Player {
 let allEnemies = [];
 const enemy = new Enemy(0, 55);
 allEnemies.push(enemy)
-let player = {
-  update: function () {
-
-  },
-  render: function () {
-
-  }
-}
+let player = new Player (303, 404)
 
 
 // This listens for key presses and sends the keys to your
