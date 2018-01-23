@@ -37,16 +37,16 @@ class Player {
   handleInput (input) {
     switch (input) {
       case 'left':
-        this.x -= 101
+        (this.x >= 101) ? this.x -= 101 : '';
         break;
       case 'up':
-        this.y -= 83
+        (this.y >= 51) ? this.y -= 83 : '';
         break;
       case 'right':
-        this.x += 101
+        (this.x <= 303) ? this.x += 101 : '';
         break;
       case 'down':
-        this.y += 83
+        (this.y <= 300) ? this.y += 83 : '';
         break;
       default:
 
@@ -59,9 +59,9 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let allEnemies = [];
-const enemy = new Enemy(0, 55);
+const enemy = new Enemy(0, 51);
 allEnemies.push(enemy)
-let player = new Player (303, 404)
+let player = new Player (202, 383) // y war 380
 
 
 // This listens for key presses and sends the keys to your
