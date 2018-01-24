@@ -10,9 +10,7 @@ class Enemy {
   // Parameter: dt, a time delta between ticks
   update (dt) {
     this.x += this.speed*dt
-    if (this.x > 505) {
-      this.x = -101
-    }
+    this.x > 505 ? this.x = -101 : '';
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -32,7 +30,11 @@ class Player {
     this.y = y;
   }
   update (dt) {
-
+    if (this.y == -32) {
+      this.y = 383
+      this.x = 202
+      addEnemy()
+    }
   }
   render () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
