@@ -14,6 +14,12 @@ class Enemy {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    if (this.y - player.y == 9) {
+      if (player.x < this.x + 75 && player.x + 75 > this.x) {
+        player.y = 383
+        player.x = 202
+      }
+    }
   }
   // Draw the enemy on the screen, required method for game
   render () {
@@ -30,7 +36,9 @@ class Player {
     this.y = y;
   }
   update (dt) {
+    // check for win
     if (this.y == -32) {
+      // if true reset player and add new enemy
       this.y = 383
       this.x = 202
       addEnemy()
