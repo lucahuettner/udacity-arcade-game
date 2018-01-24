@@ -9,7 +9,7 @@ class Enemy {
   // Update the enemy's position, required method for game
   // Parameter: dt, a time delta between ticks
   update (dt) {
-    this.x += this.speed*dt
+    this.x += this.speed*dt;
     this.x > 505 ? this.x = -101 : '';
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -38,16 +38,16 @@ class Player {
     // check for win
     if (this.y == -32) {
       // if true reset player and add new enemy
-      this.reset()
-      addEnemy()
+      this.reset();
+      addEnemy();
     }
   }
   render () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
   reset () {
-    this.y = 383
-    this.x = 202
+    this.y = 383;
+    this.x = 202;
   }
   handleInput (input) {
     switch (input) {
@@ -78,21 +78,21 @@ let count = 0
 function addEnemy() {
   if (count == 0) {
     y = 60;
-    count++
+    count++;
   } else if (count == 1) {
     y = 143;
-    count++
+    count++;
   } else {
-    y = 226
-    count = 0
+    y = 226;
+    count = 0;
   }
   const enemy = new Enemy(-101, y);
   allEnemies.push(enemy)
 }
-addEnemy()
-addEnemy()
-addEnemy()
-let player = new Player (202, 383)
+addEnemy();
+addEnemy();
+addEnemy();
+let player = new Player (202, 383);
 
 
 // This listens for key presses and sends the keys to your
