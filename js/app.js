@@ -4,27 +4,37 @@ class Enemy {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
+    // set random speed for each enemy object
     this.speed = 100 + Math.floor(Math.random() * 200);
   }
+
   // Update the enemy's position, required method for game
   // Parameter: dt, a time delta between ticks
   update (dt) {
     this.x += this.speed*dt;
+
+    // checks if enemy moves of screen
+    // if true reset enemy to enter the screen again
     this.x > 505 ? this.x = -101 : '';
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+    // check for collision with player
     if (this.y - player.y == 9) {
       if (player.x < this.x + 75 && player.x + 75 > this.x) {
+        // if both are true reset player to start position
         player.reset();
       }
     }
   }
+
   // Draw the enemy on the screen, required method for game
   render () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 }
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -34,6 +44,7 @@ class Player {
     this.x = x;
     this.y = y;
   }
+
   update (dt) {
     // check for win
     if (this.y == -32) {
@@ -42,16 +53,22 @@ class Player {
       addEnemy();
     }
   }
+
   render () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
+
+  // reset method to reset player back to starting position
   reset () {
     this.y = 383;
     this.x = 202;
   }
+
   handleInput (input) {
+    // move if the player presses the arrow keys
     switch (input) {
       case 'left':
+      // prevent player from moving off screen
         (this.x >= 101) ? this.x -= 101 : '';
         break;
       case 'up':
@@ -75,7 +92,10 @@ class Player {
 // Place the player object in a variable called player
 let allEnemies = [];
 let count = 0
+
+// add Enemy to the lanes
 function addEnemy() {
+  // check for which lane to place the enemy in
   if (count == 0) {
     y = 60;
     count++;
@@ -89,6 +109,8 @@ function addEnemy() {
   const enemy = new Enemy(-101, y);
   allEnemies.push(enemy)
 }
+
+// initiate game
 addEnemy();
 addEnemy();
 addEnemy();
