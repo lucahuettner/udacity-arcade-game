@@ -91,12 +91,13 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let allEnemies = [];
-let count = 0
+let count = 0;
 
 // add Enemy to the lanes
 function addEnemy() {
   // check for which lane to place the enemy in
-  if (count == 0) {
+  let y = 0;
+  if (count === 0) {
     y = 60;
     count++;
   } else if (count == 1) {
@@ -107,7 +108,7 @@ function addEnemy() {
     count = 0;
   }
   const enemy = new Enemy(-101, y);
-  allEnemies.push(enemy)
+  allEnemies.push(enemy);
 }
 
 // initiate game
