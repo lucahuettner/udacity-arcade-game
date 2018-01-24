@@ -10,6 +10,9 @@ class Enemy {
   // Parameter: dt, a time delta between ticks
   update (dt) {
     this.x += this.speed*dt
+    if (this.x > 505) {
+      this.x = -101
+    }
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -59,19 +62,20 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let allEnemies = [];
+let count = 0
 function addEnemy() {
-  const random = Math.floor(Math.random() * 100)
-  let y = 0;
-  if (random <= 33) {
+  if (count == 0) {
     y = 60;
-  } else if (random > 33 && random <= 66) {
+    count++
+  } else if (count == 1) {
     y = 143;
+    count++
   } else {
     y = 226
+    count = 0
   }
-  const enemy = new Enemy(0, y);
+  const enemy = new Enemy(-101, y);
   allEnemies.push(enemy)
-  console.log(random)
 }
 addEnemy()
 addEnemy()
