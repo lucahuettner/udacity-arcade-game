@@ -59,9 +59,24 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let allEnemies = [];
-const enemy = new Enemy(0, 51);
-allEnemies.push(enemy)
-let player = new Player (202, 383) // y war 380
+function addEnemy() {
+  const random = Math.floor(Math.random() * 100)
+  let y = 0;
+  if (random <= 33) {
+    y = 60;
+  } else if (random > 33 && random <= 66) {
+    y = 143;
+  } else {
+    y = 226
+  }
+  const enemy = new Enemy(0, y);
+  allEnemies.push(enemy)
+  console.log(random)
+}
+addEnemy()
+addEnemy()
+addEnemy()
+let player = new Player (202, 383)
 
 
 // This listens for key presses and sends the keys to your
