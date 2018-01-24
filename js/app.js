@@ -16,8 +16,7 @@ class Enemy {
     // all computers.
     if (this.y - player.y == 9) {
       if (player.x < this.x + 75 && player.x + 75 > this.x) {
-        player.y = 383
-        player.x = 202
+        player.reset();
       }
     }
   }
@@ -39,13 +38,16 @@ class Player {
     // check for win
     if (this.y == -32) {
       // if true reset player and add new enemy
-      this.y = 383
-      this.x = 202
+      this.reset()
       addEnemy()
     }
   }
   render () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+  reset () {
+    this.y = 383
+    this.x = 202
   }
   handleInput (input) {
     switch (input) {
