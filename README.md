@@ -2,7 +2,7 @@
 
 * [Summary](#summary)
 * [Installation](#installation)
-* [Notes](#how to play)
+* [How to Play](#how)
 * [Features](#features)
 
 ## Summary
