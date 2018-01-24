@@ -1,8 +1,8 @@
-#FEND arcade game
+# FEND arcade game
 
 * [Summary](#summary)
 * [Installation](#installation)
-* [How to Play](#how)
+* [How to Play](#how_to_play)
 * [Features](#features)
 
 ## Summary
